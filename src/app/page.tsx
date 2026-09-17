@@ -1,15 +1,23 @@
-import { Button } from "@/components/ui/button";
+import { Nav } from "@/components/nav";
+import { Hero } from "@/components/sections/hero";
+import { FeaturedListings } from "@/components/sections/featured-listings";
+import { Services } from "@/components/sections/services";
+import { About } from "@/components/sections/about";
+import { Testimonials } from "@/components/sections/testimonials";
+import { ContactFooter } from "@/components/sections/contact-footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background text-foreground">
-      <h1 className="text-3xl font-semibold tracking-tight">
-        Real Estate Website
-      </h1>
-      <p className="max-w-md text-center text-muted-foreground">
-        Scaffolded with Next.js, Tailwind CSS, and shadcn/ui.
-      </p>
-      <Button>Get Started</Button>
-    </div>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <FeaturedListings />
+        <Services />
+        <About />
+        <Testimonials />
+      </main>
+      <ContactFooter />
+    </>
   );
 }
