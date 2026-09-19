@@ -152,6 +152,7 @@ export function DistortThumbnail({
 
     let raf = 0;
     let disposed = false;
+    let isVisible = true;
     const clock = new THREE.Clock();
 
     const tick = () => {
@@ -161,8 +162,20 @@ export function DistortThumbnail({
       uniforms.uMouse.value.lerp(targetMouse, 0.08);
       uniforms.uTime.value = clock.getElapsedTime();
       renderer.render(scene, camera);
-      raf = requestAnimationFrame(tick);
+      raf = isVisible ? requestAnimationFrame(tick) : 0;
     };
+
+    // Stop rendering entirely once the thumbnail scrolls off-screen so
+    // idle GPU/battery cost doesn't accrue for content nobody can see.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !raf && !disposed) raf = requestAnimationFrame(tick);
+      },
+      { rootMargin: "200px" }
+    );
+    io.observe(container);
+
     raf = requestAnimationFrame(() => {
       setReady(true);
       tick();
@@ -171,6 +184,7 @@ export function DistortThumbnail({
     return () => {
       disposed = true;
       cancelAnimationFrame(raf);
+      io.disconnect();
       ro.disconnect();
       container.removeEventListener("pointermove", onPointerMove);
       container.removeEventListener("pointerenter", onPointerEnter);

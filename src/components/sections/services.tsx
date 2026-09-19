@@ -77,6 +77,7 @@ export function Services() {
                     type="button"
                     onClick={() => setActive(i)}
                     onMouseEnter={() => setActive(i)}
+                    onFocus={() => setActive(i)}
                     className="flex w-full items-baseline justify-between gap-6 py-6 text-left"
                   >
                     <span

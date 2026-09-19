@@ -15,6 +15,8 @@ export function Nav() {
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const ref = useRef<HTMLElement>(null);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+  const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const trigger = ScrollTrigger.create({
@@ -28,8 +30,31 @@ export function Nav() {
 
   useEffect(() => {
     document.documentElement.style.overflow = menuOpen ? "hidden" : "";
+
+    // Keep the overlay menu modal: hide the rest of the page from
+    // keyboard/screen-reader users and assistive tech while it's open.
+    const others = document.querySelectorAll<HTMLElement>("body > main, body > footer");
+    others.forEach((el) => {
+      if (menuOpen) el.setAttribute("inert", "");
+      else el.removeAttribute("inert");
+    });
+
+    if (menuOpen) {
+      firstMenuLinkRef.current?.focus();
+    }
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+        menuToggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+
     return () => {
       document.documentElement.style.overflow = "";
+      others.forEach((el) => el.removeAttribute("inert"));
+      document.removeEventListener("keydown", onKeyDown);
     };
   }, [menuOpen]);
 
@@ -91,6 +116,7 @@ export function Nav() {
         </a>
 
         <button
+          ref={menuToggleRef}
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
           aria-expanded={menuOpen}
@@ -120,9 +146,10 @@ export function Nav() {
       {menuOpen && (
         <div className="fixed inset-0 top-[72px] flex flex-col justify-between bg-paper px-6 pb-10 pt-6 md:hidden">
           <ul className="flex flex-col gap-1">
-            {LINKS.map((link) => (
+            {LINKS.map((link, i) => (
               <li key={link.href} className="border-b border-stone">
                 <a
+                  ref={i === 0 ? firstMenuLinkRef : undefined}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className="block py-4 font-display text-3xl text-ink"
