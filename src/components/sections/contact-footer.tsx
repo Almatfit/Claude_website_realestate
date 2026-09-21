@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
 const NAV_LINKS = [
@@ -92,9 +93,19 @@ export function ContactFooter() {
               </li>
             ))}
           </ul>
-          <p className="text-sm text-paper/50">
-            © {new Date().getFullYear()} Almat Real Estate. DRE #01234567.
-          </p>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/images/real-broker-logo.png"
+              alt="Brokered by Real (Real Broker, LLC)"
+              width={78}
+              height={36}
+              className="h-7 w-auto shrink-0 sm:h-8"
+            />
+            <p className="text-sm text-paper/50">
+              © {new Date().getFullYear()} Almat Real Estate. Sofia
+              Lindqvist, DRE #01234567. Brokered by Real.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

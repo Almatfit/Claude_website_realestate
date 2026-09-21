@@ -73,18 +73,18 @@ export function About() {
             About Almat
           </h2>
           <p className="about-reveal mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Almat is a boutique practice founded in 2014 by principal broker
-            Sofia Lindqvist, built on a simple premise: fewer listings, more
-            attention. We represent a small number of exceptional properties
-            each year, working closely with sellers on positioning and with
-            buyers on the details that matter after the sale — school
-            boundaries, coastal setbacks, the neighbor&rsquo;s renovation
-            plans.
+            Almat is the independent practice of Sofia Lindqvist, a Realtor
+            &reg; brokered by Real (Real Broker, LLC), built on a simple
+            premise: fewer listings, more attention. Each year Sofia
+            represents a small number of exceptional properties, working
+            closely with sellers on positioning and with buyers on the
+            details that matter after the sale — school boundaries, coastal
+            setbacks, the neighbor&rsquo;s renovation plans.
           </p>
           <p className="about-reveal mt-5 max-w-xl leading-relaxed text-ink-soft">
             The practice is small by design. Every client works directly
-            with a principal agent from first call to final signature, no
-            hand-offs in between.
+            with Sofia from first call to final signature — no team, no
+            hand-offs.
           </p>
 
           <div className="about-reveal mt-12 flex flex-wrap gap-x-12 gap-y-8 border-t border-stone pt-8">
