@@ -69,7 +69,7 @@ export function About() {
         </div>
 
         <div className="lg:col-span-6 lg:col-start-7">
-          <h2 className="about-reveal font-display text-4xl text-ink sm:text-5xl">
+          <h2 className="about-reveal font-display font-medium text-4xl text-ink sm:text-5xl">
             About Almat
           </h2>
           <p className="about-reveal mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">

@@ -72,19 +72,16 @@ export function Nav() {
         <a
           href="#hero"
           className={cn(
-            "flex items-baseline gap-2 transition-colors duration-500",
+            "font-display text-xl font-medium leading-none tracking-tight transition-colors duration-500 sm:text-2xl",
             dark ? "text-ink" : "text-paper"
           )}
         >
-          <span className="font-display text-2xl leading-none">Almat</span>
-          <span className="text-xs font-normal tracking-wide opacity-80">
-            Real Estate
-          </span>
+          Almat Real Estate
         </a>
 
         <ul
           className={cn(
-            "hidden items-center gap-9 text-sm transition-colors duration-500 md:flex",
+            "hidden items-center gap-9 text-sm font-medium transition-colors duration-500 md:flex",
             dark ? "text-ink-soft" : "text-paper/85"
           )}
         >
@@ -106,7 +103,7 @@ export function Nav() {
         <a
           href="#contact"
           className={cn(
-            "hidden rounded-full border px-5 py-2.5 text-sm transition-colors duration-500 md:inline-flex",
+            "hidden rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-500 md:inline-flex",
             dark
               ? "border-verdigris text-verdigris hover:bg-verdigris hover:text-paper"
               : "border-paper/60 text-paper hover:bg-paper hover:text-ink"
@@ -152,7 +149,7 @@ export function Nav() {
                   ref={i === 0 ? firstMenuLinkRef : undefined}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-4 font-display text-3xl text-ink"
+                  className="block py-4 font-display text-3xl font-medium text-ink"
                 >
                   {link.label}
                 </a>
@@ -162,7 +159,7 @@ export function Nav() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="rounded-full bg-verdigris px-6 py-4 text-center text-sm text-paper"
+            className="rounded-full bg-verdigris px-6 py-4 text-center text-sm font-medium text-paper"
           >
             Schedule a consultation
           </a>

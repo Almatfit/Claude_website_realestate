@@ -98,7 +98,7 @@ export function Hero() {
           </p>
           <h1
             ref={headlineRef}
-            className="hero-headline font-display text-[13vw] leading-[0.95] text-paper sm:text-[9vw] lg:text-[6.4rem]"
+            className="hero-headline font-display font-medium text-[13vw] leading-[0.95] text-paper sm:text-[9vw] lg:text-[6.4rem]"
           >
             Homes, considered.
           </h1>

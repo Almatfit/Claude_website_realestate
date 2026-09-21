@@ -31,7 +31,7 @@ export function ContactFooter() {
       <div className="mx-auto max-w-[1600px] px-6 py-28 sm:px-10 sm:py-36 lg:px-16">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <h2 className="contact-reveal font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+            <h2 className="contact-reveal font-display font-medium text-4xl leading-tight sm:text-5xl lg:text-6xl">
               Let&rsquo;s find your
               <br />
               next address.
@@ -42,7 +42,7 @@ export function ContactFooter() {
             </p>
             <a
               href="mailto:hello@almatrealestate.com?subject=Consultation%20request"
-              className="contact-reveal mt-10 inline-flex rounded-full bg-paper px-7 py-3.5 text-sm text-ink transition-colors hover:bg-verdigris hover:text-paper"
+              className="contact-reveal mt-10 inline-flex rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-verdigris hover:text-paper"
             >
               Schedule a consultation
             </a>
@@ -77,8 +77,13 @@ export function ContactFooter() {
         </div>
 
         <div className="contact-reveal mt-24 flex flex-col gap-6 border-t border-paper/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-display text-lg">Almat Real Estate</span>
-          <ul className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-paper/70">
+          <a
+            href="#hero"
+            className="font-display text-lg font-medium tracking-tight transition-colors hover:text-paper/80"
+          >
+            Almat Real Estate
+          </a>
+          <ul className="flex flex-wrap gap-x-8 gap-y-2 text-sm font-medium text-paper/70">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a href={link.href} className="hover:text-paper">

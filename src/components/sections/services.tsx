@@ -67,7 +67,7 @@ export function Services() {
       <div ref={pinRef} className="mx-auto flex max-w-[1600px] min-h-screen flex-col justify-center py-24 lg:py-0">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-7">
-            <h2 className="font-display text-4xl text-ink sm:text-5xl">
+            <h2 className="font-display font-medium text-4xl text-ink sm:text-5xl">
               What we do
             </h2>
             <ul className="mt-10 border-t border-stone">
@@ -82,7 +82,7 @@ export function Services() {
                   >
                     <span
                       className={cn(
-                        "font-display text-2xl transition-colors duration-300 sm:text-3xl",
+                        "font-display font-medium text-2xl transition-colors duration-300 sm:text-3xl",
                         active === i ? "text-verdigris" : "text-ink"
                       )}
                     >

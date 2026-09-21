@@ -118,7 +118,7 @@ export function FeaturedListings() {
     >
       <div className="mx-auto max-w-[1600px]">
         <div className="mb-16 flex flex-col items-start justify-between gap-6 sm:mb-20 sm:flex-row sm:items-end">
-          <h2 className="listings-head-el font-display text-4xl text-ink sm:text-5xl lg:text-6xl">
+          <h2 className="listings-head-el font-display font-medium text-4xl text-ink sm:text-5xl lg:text-6xl">
             Featured properties
           </h2>
           <a
