@@ -65,7 +65,11 @@ export function Nav() {
       ref={ref}
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
-        dark ? "bg-paper/95 backdrop-blur-sm border-b border-stone" : "bg-transparent"
+        menuOpen
+          ? "bg-paper border-b border-stone"
+          : solid
+            ? "bg-paper/95 backdrop-blur-sm border-b border-stone"
+            : "bg-transparent"
       )}
     >
       <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 sm:px-10 lg:px-16">
