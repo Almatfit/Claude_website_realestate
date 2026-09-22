@@ -11,14 +11,18 @@ const LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
-export function Nav() {
-  const [solid, setSolid] = useState(false);
+export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
+  const [solid, setSolid] = useState(alwaysSolid);
   const [menuOpen, setMenuOpen] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const menuToggleRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
+    // Pages without a #hero (e.g. legal pages) have nothing to sit
+    // transparently over, so skip the scroll trigger and stay solid.
+    if (alwaysSolid) return;
+
     const trigger = ScrollTrigger.create({
       trigger: "#hero",
       start: "bottom top+=80",
@@ -26,7 +30,7 @@ export function Nav() {
       onLeaveBack: () => setSolid(false),
     });
     return () => trigger.kill();
-  }, []);
+  }, [alwaysSolid]);
 
   useEffect(() => {
     document.documentElement.style.overflow = menuOpen ? "hidden" : "";

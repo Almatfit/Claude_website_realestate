@@ -158,6 +158,14 @@ export function ContactFooter() {
             data is provided courtesy of the Northwest Multiple Listing
             Service (NWMLS) and is not guaranteed to be accurate by the MLS.
           </p>
+          <p className="mt-4 text-xs text-paper/40">
+            <a
+              href="/privacy-policy"
+              className="underline underline-offset-2 transition-colors hover:text-paper"
+            >
+              Privacy Policy
+            </a>
+          </p>
         </div>
       </div>
     </footer>
