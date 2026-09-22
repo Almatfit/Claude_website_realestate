@@ -59,7 +59,7 @@ export function ContactFooter() {
               your home is worth, we begin with a conversation.
             </p>
             <a
-              href="mailto:hello@almatrealestate.com?subject=Consultation%20request"
+              href="mailto:almat@almatrealestate.com?subject=Consultation%20request"
               className="contact-reveal mt-10 inline-flex rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-verdigris hover:text-paper"
             >
               Schedule a consultation
@@ -80,10 +80,10 @@ export function ContactFooter() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@almatrealestate.com"
+                  href="mailto:almat@almatrealestate.com"
                   className="text-lg transition-colors hover:text-verdigris-soft"
                 >
-                  hello@almatrealestate.com
+                  almat@almatrealestate.com
                 </a>
               </li>
               <li className="pt-2 text-paper/70">
