@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
@@ -9,23 +10,6 @@ const NAV_LINKS = [
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
 ];
-
-function EqualHousingIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M3 11.5L12 4L21 11.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M5.5 10V20H18.5V10" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10 20V14H14V20" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export function ContactFooter() {
   const rootRef = useRef<HTMLElement>(null);
@@ -120,18 +104,25 @@ export function ContactFooter() {
         <div className="contact-reveal mt-8 border-t border-paper/15 pt-8">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
             <div className="flex items-center gap-2">
-              <EqualHousingIcon className="h-5 w-5 text-paper/60" />
+              <Image
+                src="/images/equal-housing-logo.png"
+                alt="Equal Housing Opportunity"
+                width={922}
+                height={798}
+                className="h-7 w-auto opacity-70"
+              />
               <span className="text-xs text-paper/60">
                 Equal Housing Opportunity
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span
-                aria-hidden="true"
-                className="flex h-5 w-5 items-center justify-center rounded-sm border border-paper/60 text-[11px] font-bold text-paper/60"
-              >
-                R
-              </span>
+              <Image
+                src="/images/realtor-logo.png"
+                alt="REALTOR&reg;"
+                width={404}
+                height={470}
+                className="h-7 w-auto opacity-70"
+              />
               <span className="text-xs text-paper/60">REALTOR&reg;</span>
             </div>
             <div
