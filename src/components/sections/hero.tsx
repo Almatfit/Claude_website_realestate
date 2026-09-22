@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArtPanel } from "@/components/art-panel";
+import Image from "next/image";
 import { gsap, SplitText } from "@/lib/gsap";
 
 export function Hero() {
@@ -81,13 +81,20 @@ export function Hero() {
       className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-ink"
     >
       <div ref={imgRef} className="absolute inset-0 scale-[1.02]">
-        <ArtPanel variant="coast" className="h-full w-full" label="Oceanfront residence at dusk" />
+        <Image
+          src="/images/hero-kitchen.jpg"
+          alt="Almat Shyntayev in a light-filled kitchen renovation"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[10%_center] sm:object-[24%_center] xl:object-center"
+        />
       </div>
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(27,24,18,0.65) 0%, rgba(27,24,18,0.55) 40%, rgba(27,24,18,0.85) 100%)",
+            "linear-gradient(180deg, rgba(27,24,18,0.4) 0%, rgba(27,24,18,0.32) 40%, rgba(27,24,18,0.6) 100%)",
         }}
       />
 
