@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
+import { LeadForm } from "@/components/sections/lead-form";
 
 const NAV_LINKS = [
   { href: "#listings", label: "Listings" },
@@ -42,12 +43,9 @@ export function ContactFooter() {
               Whether you&rsquo;re buying, selling, or simply curious what
               your home is worth, we begin with a conversation.
             </p>
-            <a
-              href="mailto:almat@almatrealestate.com?subject=Consultation%20request"
-              className="contact-reveal mt-10 inline-flex rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-verdigris hover:text-paper"
-            >
-              Schedule a consultation
-            </a>
+            <div className="mt-10 max-w-xl">
+              <LeadForm />
+            </div>
           </div>
 
           <div className="contact-reveal lg:col-span-4 lg:col-start-9">
