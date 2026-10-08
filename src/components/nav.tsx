@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
+import { useLeadFormModal } from "@/components/lead-form-modal";
 
 const LINKS = [
   { href: "#listings", label: "Listings" },
@@ -17,6 +18,7 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
   const ref = useRef<HTMLElement>(null);
   const menuToggleRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
+  const { openModal } = useLeadFormModal();
 
   useEffect(() => {
     // Pages without a #hero (e.g. legal pages) have nothing to sit
@@ -108,8 +110,9 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
           ))}
         </ul>
 
-        <a
-          href="#contact"
+        <button
+          type="button"
+          onClick={() => openModal()}
           className={cn(
             "hidden rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-500 md:inline-flex",
             dark
@@ -118,7 +121,7 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
           )}
         >
           Schedule a consultation
-        </a>
+        </button>
 
         <button
           ref={menuToggleRef}
@@ -164,13 +167,19 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
               </li>
             ))}
           </ul>
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              // The button triggering this is inside the menu overlay and
+              // unmounts the instant the menu closes, so hand off focus
+              // return to the always-present hamburger toggle instead.
+              openModal(menuToggleRef.current);
+            }}
             className="rounded-full bg-verdigris px-6 py-4 text-center text-sm font-medium text-paper"
           >
             Schedule a consultation
-          </a>
+          </button>
         </div>
       )}
     </header>

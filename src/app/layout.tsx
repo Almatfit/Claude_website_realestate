@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { LeadFormModalProvider } from "@/components/lead-form-modal";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink font-body">
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <LeadFormModalProvider>{children}</LeadFormModalProvider>
+        </SmoothScroll>
       </body>
     </html>
   );

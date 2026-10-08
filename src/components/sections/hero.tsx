@@ -3,11 +3,13 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap, SplitText } from "@/lib/gsap";
+import { useLeadFormModal } from "@/components/lead-form-modal";
 
 export function Hero() {
   const rootRef = useRef<HTMLElement>(null);
   const imgRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const { openModal } = useLeadFormModal();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,10 +30,10 @@ export function Hero() {
           const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
           if (reduced || !split) {
-            tl.set([".hero-eyebrow", ".hero-headline", ".hero-sub", ".hero-cue"], {
-              opacity: 1,
-              y: 0,
-            });
+            tl.set(
+              [".hero-eyebrow", ".hero-headline", ".hero-sub", ".hero-cta", ".hero-cue"],
+              { opacity: 1, y: 0 }
+            );
           } else {
             tl.from(".hero-eyebrow", { opacity: 0, y: 12, duration: 0.6 })
               .from(
@@ -40,6 +42,7 @@ export function Hero() {
                 "-=0.3"
               )
               .from(".hero-sub", { opacity: 0, y: 16, duration: 0.7 }, "-=0.5")
+              .from(".hero-cta", { opacity: 0, y: 12, duration: 0.6 }, "-=0.4")
               .from(".hero-cue", { opacity: 0, duration: 0.8 }, "-=0.3");
           }
 
@@ -113,6 +116,13 @@ export function Hero() {
             A boutique practice for buyers, sellers, and the properties worth
             waiting for.
           </p>
+          <button
+            type="button"
+            onClick={() => openModal()}
+            className="hero-cta mt-9 inline-flex rounded-full border border-paper/60 px-7 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-paper hover:text-ink"
+          >
+            Schedule a consultation
+          </button>
         </div>
       </div>
 
