@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
-import { cn } from "@/lib/utils";
 import { LeadForm } from "@/components/sections/lead-form";
 
 const NAV_LINKS = [
@@ -123,13 +122,15 @@ export function ContactFooter() {
               />
               <span className="text-xs text-paper/60">REALTOR&reg;</span>
             </div>
-            <div
-              className={cn(
-                "rounded border border-dashed border-paper/30 px-3 py-1.5",
-                "text-xs text-paper/40"
-              )}
-            >
-              Real Broker, LLC logo — placeholder, image to be provided
+            <div className="flex items-center gap-2">
+              <Image
+                src="/images/real-broker-logo.png"
+                alt="Real Broker, LLC"
+                width={1144}
+                height={397}
+                className="h-7 w-auto opacity-70"
+              />
+              <span className="text-xs text-paper/60">Real Broker, LLC</span>
             </div>
           </div>
 
