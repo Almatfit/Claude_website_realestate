@@ -25,6 +25,12 @@ const INITIAL_VALUES: FormValues = {
   company: "",
 };
 
+interface LeadFormProps {
+  /** Prefills the message field (still freely editable) — e.g. a
+   * mortgage calculator estimate the visitor was just looking at. */
+  initialMessage?: string;
+}
+
 type FieldErrors = Partial<Record<keyof FormValues, string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,9 +77,12 @@ function FieldError({ id, message }: { id: string; message?: string }) {
   );
 }
 
-export function LeadForm() {
+export function LeadForm({ initialMessage }: LeadFormProps = {}) {
   const formId = useId();
-  const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
+  const [values, setValues] = useState<FormValues>(() => ({
+    ...INITIAL_VALUES,
+    message: initialMessage ?? "",
+  }));
   const [touched, setTouched] = useState<Partial<Record<keyof FormValues, boolean>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [formError, setFormError] = useState<string | null>(null);

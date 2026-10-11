@@ -22,6 +22,10 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       duration: 1.15,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
+      // Smooth-scrolls same-page hash links (nav anchors like
+      // #mortgage-calculator) instead of the instant native jump —
+      // html has `scroll-behavior: auto` precisely so Lenis owns this.
+      anchors: true,
     });
     lenisInstance.current = lenis;
 

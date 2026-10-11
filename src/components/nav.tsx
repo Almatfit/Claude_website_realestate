@@ -9,6 +9,7 @@ const LINKS = [
   { href: "#listings", label: "Listings" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
+  { href: "/#mortgage-calculator", label: "Mortgage Calculator" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -91,7 +92,7 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
 
         <ul
           className={cn(
-            "hidden items-center gap-9 text-sm font-medium transition-colors duration-500 md:flex",
+            "hidden items-center gap-6 text-sm font-medium transition-colors duration-500 lg:flex xl:gap-9",
             dark ? "text-ink-soft" : "text-paper/85"
           )}
         >
@@ -114,7 +115,7 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
           type="button"
           onClick={() => openModal()}
           className={cn(
-            "hidden rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-500 md:inline-flex",
+            "hidden rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-500 lg:inline-flex",
             dark
               ? "border-verdigris text-verdigris hover:bg-verdigris hover:text-paper"
               : "border-paper/60 text-paper hover:bg-paper hover:text-ink"
@@ -130,7 +131,7 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           className={cn(
-            "flex h-11 w-11 items-center justify-center md:hidden",
+            "flex h-11 w-11 items-center justify-center lg:hidden",
             dark ? "text-ink" : "text-paper"
           )}
         >
@@ -152,7 +153,7 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
       </nav>
 
       {menuOpen && (
-        <div className="fixed inset-0 top-[72px] flex flex-col justify-between bg-paper px-6 pb-10 pt-6 md:hidden">
+        <div className="fixed inset-0 top-[72px] flex flex-col justify-between bg-paper px-6 pb-10 pt-6 lg:hidden">
           <ul className="flex flex-col gap-1">
             {LINKS.map((link, i) => (
               <li key={link.href} className="border-b border-stone">
@@ -174,7 +175,7 @@ export function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
               // The button triggering this is inside the menu overlay and
               // unmounts the instant the menu closes, so hand off focus
               // return to the always-present hamburger toggle instead.
-              openModal(menuToggleRef.current);
+              openModal({ opener: menuToggleRef.current });
             }}
             className="rounded-full bg-verdigris px-6 py-4 text-center text-sm font-medium text-paper"
           >

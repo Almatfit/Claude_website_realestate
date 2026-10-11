@@ -3,7 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { FeaturedListings } from "@/components/sections/featured-listings";
 import { Services } from "@/components/sections/services";
 import { About } from "@/components/sections/about";
-import { Testimonials } from "@/components/sections/testimonials";
+import { MortgageCalculator } from "@/components/sections/mortgage-calculator";
 import { ContactFooter } from "@/components/sections/contact-footer";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
         <FeaturedListings />
         <Services />
         <About />
-        <Testimonials />
+        <MortgageCalculator />
       </main>
       <ContactFooter />
     </>

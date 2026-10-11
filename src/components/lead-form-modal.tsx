@@ -12,12 +12,20 @@ import { X } from "lucide-react";
 import { Modal } from "@/components/modal";
 import { LeadForm } from "@/components/sections/lead-form";
 
+export interface OpenLeadFormModalOptions {
+  /** Explicit focus-return target. Needed when the triggering element
+   * won't still be in the DOM once the modal closes (e.g. a button
+   * inside a menu overlay that closes itself first) — otherwise the
+   * currently focused element is used automatically. */
+  opener?: HTMLElement | null;
+  /** Prefills (and remains editable in) the form's message field — used
+   * to carry context like a mortgage calculator estimate into the lead's
+   * GHL note without adding a dedicated field. */
+  initialMessage?: string;
+}
+
 interface LeadFormModalContextValue {
-  /** Opens the modal. Pass an explicit `opener` when the triggering
-   * element won't still be in the DOM once the modal closes (e.g. a
-   * button inside a menu overlay that closes itself first) — otherwise
-   * the currently focused element is used automatically. */
-  openModal: (opener?: HTMLElement | null) => void;
+  openModal: (options?: OpenLeadFormModalOptions) => void;
 }
 
 const LeadFormModalContext = createContext<LeadFormModalContextValue | null>(
@@ -43,12 +51,14 @@ export function LeadFormModalProvider({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const [initialMessage, setInitialMessage] = useState<string | undefined>(undefined);
   const openerRef = useRef<HTMLElement | null>(null);
   const titleId = useId();
   const descriptionId = useId();
 
-  const openModal = useCallback((opener?: HTMLElement | null) => {
-    openerRef.current = opener ?? (document.activeElement as HTMLElement | null);
+  const openModal = useCallback((options?: OpenLeadFormModalOptions) => {
+    openerRef.current = options?.opener ?? (document.activeElement as HTMLElement | null);
+    setInitialMessage(options?.initialMessage);
     setOpen(true);
   }, []);
 
@@ -76,7 +86,7 @@ export function LeadFormModalProvider({
             follow up within one business day.
           </p>
           <div className="mt-8">
-            <LeadForm />
+            <LeadForm initialMessage={initialMessage} />
           </div>
           {/* Placed after the form in DOM/tab order on purpose: it's
               absolutely positioned top-right regardless, but this keeps
