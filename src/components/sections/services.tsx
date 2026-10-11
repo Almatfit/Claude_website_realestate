@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArtPanel } from "@/components/art-panel";
+import Image from "next/image";
 import { SERVICES } from "@/lib/services";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
@@ -105,12 +105,17 @@ export function Services() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden">
               {SERVICES.map((service, i) => (
-                <ArtPanel
+                <Image
                   key={service.id}
-                  variant={service.variant}
-                  label={service.name}
+                  src={service.image.src}
+                  alt={service.image.alt}
+                  fill
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={service.image.blurDataURL}
+                  sizes="(min-width: 1024px) 40vw, 90vw"
                   className={cn(
-                    "absolute inset-0 h-full w-full transition-opacity duration-500",
+                    "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
                     active === i ? "opacity-100" : "opacity-0"
                   )}
                 />
