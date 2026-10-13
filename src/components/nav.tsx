@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import { useLeadFormModal } from "@/components/lead-form-modal";
 
 const LINKS = [
-  { href: "#listings", label: "Listings" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
   { href: "/#mortgage-calculator", label: "Mortgage Calculator" },

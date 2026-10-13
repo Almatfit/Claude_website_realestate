@@ -1,6 +1,5 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/sections/hero";
-import { FeaturedListings } from "@/components/sections/featured-listings";
 import { Services } from "@/components/sections/services";
 import { About } from "@/components/sections/about";
 import { MortgageCalculator } from "@/components/sections/mortgage-calculator";
@@ -12,7 +11,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <FeaturedListings />
         <Services />
         <About />
         <MortgageCalculator />

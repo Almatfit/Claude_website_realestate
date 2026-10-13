@@ -6,7 +6,6 @@ import { gsap } from "@/lib/gsap";
 import { LeadForm } from "@/components/sections/lead-form";
 
 const NAV_LINKS = [
-  { href: "#listings", label: "Listings" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
 ];
