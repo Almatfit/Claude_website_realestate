@@ -3,7 +3,7 @@ import { Nav } from "@/components/nav";
 import { ContactFooter } from "@/components/sections/contact-footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Almat Real Estate",
+  title: "Privacy Policy",
   description:
     "How Almat Real Estate collects, uses, and shares personal information from visitors to this site.",
 };

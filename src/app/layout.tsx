@@ -18,10 +18,22 @@ const inter = Inter({
   weight: ["400", "500"],
 });
 
+const SITE_TITLE =
+  "Almat Real Estate - WA Real Estate Broker in Bellevue & Seattle";
+
 export const metadata: Metadata = {
-  title: "Almat Real Estate",
+  title: {
+    default: SITE_TITLE,
+    template: "%s | Almat Real Estate",
+  },
   description:
     "Almat Real Estate — curated homes, quiet counsel. Buying, selling, and relocation for discerning clients.",
+  openGraph: {
+    title: SITE_TITLE,
+  },
+  twitter: {
+    title: SITE_TITLE,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
