@@ -31,16 +31,16 @@ export function Hero() {
 
           if (reduced || !split) {
             tl.set(
-              [".hero-eyebrow", ".hero-headline", ".hero-sub", ".hero-cta", ".hero-cue"],
+              [".hero-headline", ".hero-sub", ".hero-cta", ".hero-cue"],
               { opacity: 1, y: 0 }
             );
           } else {
-            tl.from(".hero-eyebrow", { opacity: 0, y: 12, duration: 0.6 })
-              .from(
-                split.words,
-                { opacity: 0, y: 40, duration: 1, stagger: 0.07 },
-                "-=0.3"
-              )
+            tl.from(split.words, {
+              opacity: 0,
+              y: 40,
+              duration: 1,
+              stagger: 0.07,
+            })
               .from(".hero-sub", { opacity: 0, y: 16, duration: 0.7 }, "-=0.5")
               .from(".hero-cta", { opacity: 0, y: 12, duration: 0.6 }, "-=0.4")
               .from(".hero-cue", { opacity: 0, duration: 0.8 }, "-=0.3");
@@ -103,9 +103,6 @@ export function Hero() {
 
       <div className="relative z-10 w-full px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24">
         <div className="max-w-4xl">
-          <p className="hero-eyebrow mb-5 text-sm text-paper/80">
-            Almat Real Estate — Coastal &amp; Metro
-          </p>
           <h1
             ref={headlineRef}
             className="hero-headline font-display font-medium text-[13vw] leading-[0.95] text-paper sm:text-[9vw] lg:text-[6.4rem]"
