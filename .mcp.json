@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "magicuidesign-mcp": {
+      "command": "npx",
+      "args": ["-y", "@magicuidesign/mcp@latest"]
+    },
+    "reactbits-mcp": {
+      "command": "npx",
+      "args": ["-y", "reactbits-mcp-server@latest"]
+    }
+  }
+}
