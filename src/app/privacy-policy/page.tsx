@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "How Almat Real Estate collects, uses, and shares personal information from visitors to this site.",
 };
 
-const LAST_UPDATED = "September 22, 2026";
+const LAST_UPDATED = "October 29, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -109,8 +109,13 @@ export default function PrivacyPolicyPage() {
               </h2>
               <p className="mt-4">
                 We use cookies and similar technologies for analytics and
-                advertising purposes as described above. You can control
-                cookies through your browser settings. To opt out of
+                advertising purposes as described above. These cookies are
+                only set after you click &ldquo;Accept&rdquo; on our cookie
+                banner; if you decline, no analytics or advertising cookies
+                are placed. You can change your choice at any time using the
+                &ldquo;Cookie settings&rdquo; link at the bottom of any page,
+                and you can also control cookies through your browser
+                settings. To opt out of
                 interest-based advertising from our ad partners, you may
                 visit:
               </p>

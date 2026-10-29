@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { LeadFormModalProvider } from "@/components/lead-form-modal";
 import { HashScrollOnLoad } from "@/components/hash-scroll-on-load";
+import { CookieConsent } from "@/components/cookie-consent";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <LeadFormModalProvider>{children}</LeadFormModalProvider>
         </SmoothScroll>
         <HashScrollOnLoad />
+        <CookieConsent />
       </body>
     </html>
   );

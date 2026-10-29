@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { LeadForm } from "@/components/sections/lead-form";
+import { CookieSettingsLink } from "@/components/cookie-settings-link";
 
 const NAV_LINKS = [
   { href: "#services", label: "Services" },
@@ -147,13 +148,14 @@ export function ContactFooter() {
             data is provided courtesy of the Northwest Multiple Listing
             Service (NWMLS) and is not guaranteed to be accurate by the MLS.
           </p>
-          <p className="mt-4 text-xs text-paper/40">
+          <p className="mt-4 flex gap-5 text-xs text-paper/40">
             <a
               href="/privacy-policy"
               className="underline underline-offset-2 transition-colors hover:text-paper"
             >
               Privacy Policy
             </a>
+            <CookieSettingsLink className="underline underline-offset-2 transition-colors hover:text-paper" />
           </p>
         </div>
       </div>
